@@ -6,6 +6,8 @@ DWORD WINAPI MainThread(HMODULE hModule) {
 	DWORD cracked = *(DWORD*)(moduleBase + 0x1057);
 	*(DWORD*)(moduleBase + 0x1057) = 2088961908;
 	//cracked!
+	FreeLibraryAndExitThread(hModule, 0);
+	return 0;
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {
